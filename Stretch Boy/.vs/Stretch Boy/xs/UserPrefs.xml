@@ -1,0 +1,35 @@
+﻿<Properties StartupConfiguration="{74718E1A-AA55-5A78-2DAD-88E8F21DF603}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/MyAssets/Scripts/CanvasUiManager.cs">
+    <Files>
+      <File FileName="Assets/MyAssets/Scripts/GameManager.cs" Line="109" Column="1" />
+      <File FileName="Assets/MyAssets/Scripts/CanvasUiManager.cs" Line="39" Column="6" />
+      <File FileName="Assets/MyAssets/Scripts/WallManager.cs" Line="14" Column="49" />
+      <File FileName="Assets/MyAssets/Scripts/CameraController.cs" Line="24" Column="9" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Stretch Boy" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Lava_Flowing_Shader" expanded="True">
+                <Node name="Scripts" expanded="True" />
+              </Node>
+              <Node name="MyAssets" expanded="True">
+                <Node name="Scripts" expanded="True">
+                  <Node name="CanvasUiManager.cs" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="a568cf4e-5916-40f4-aa19-f02e1e7cafac" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

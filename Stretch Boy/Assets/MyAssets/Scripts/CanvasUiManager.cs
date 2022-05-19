@@ -4,16 +4,11 @@ using UnityEngine.UI;
 
 public class CanvasUiManager : MonoBehaviour
 {
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            PlayerPrefs.DeleteAll();
-        }
-    }
-
+    
     public int currentLevelNo = 1;
-    public Text thisLevelNo;
+    public Text scoreText;
+
+
 
     private void Awake()
     {
@@ -24,6 +19,14 @@ public class CanvasUiManager : MonoBehaviour
        
         currentLevelNo = PlayerPrefs.GetInt("LevelNo", 1);
         Debug.Log(currentLevelNo);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            PlayerPrefs.DeleteAll();
+        }
     }
 
     public void Next()
@@ -38,6 +41,7 @@ public class CanvasUiManager : MonoBehaviour
     public void RetryGame()
     {
         Time.timeScale = 1;
+        Debug.Log("Button clicked");
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
@@ -59,5 +63,10 @@ public class CanvasUiManager : MonoBehaviour
     public void Reload()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private void ScoreUpdate()
+    {
+        Debug.Log("EventCalled");
     }
 }

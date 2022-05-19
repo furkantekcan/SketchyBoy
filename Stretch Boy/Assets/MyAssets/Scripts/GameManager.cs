@@ -2,22 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager: MonoBehaviour
 {
 	public static GameManager Instance;
-	private Obi.ObiRope[] obiRopeS;
-	private Drag[] hands;
 	public GameObject retryPanel;
 	public GameObject winPanel;
 	public GameObject commingSoonPanel;
-	private int handsStick;
 	public GameObject hand;
 	public Material fixedHandColor;
 	public Material handsMat;
+	public Transform head;
+	public Text scoreText;
+	
+
+
+	private int handsStick;
+	private Obi.ObiRope[] obiRopeS;
+	private Drag[] hands;
+
+
+	private float lastPosOfHead;
+	private float score;
 
 	private void Start()
 	{
+		score = 0;
+		lastPosOfHead = head.position.y;
 	}
 
 	private void Awake()
@@ -45,6 +57,9 @@ public class GameManager: MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+
+		SetScore();
+
     }
 	public void CheckHandCollision()
     {
@@ -96,10 +111,21 @@ public class GameManager: MonoBehaviour
 		print(handsStick + "Last");
 	}
 
+	private void SetScore()
+    {
+		if (lastPosOfHead < head.position.y)
+		{
+			score += ((int)((head.position.y - lastPosOfHead) * 10));
+			scoreText.text = score.ToString();
+			lastPosOfHead = head.position.y;
+
+		}
+	}
+
 	public void RetryGame()
 	{
-		if (retryPanel.activeSelf == false && winPanel.activeSelf == false && commingSoonPanel.activeSelf == false)
-		{
+        if (retryPanel.activeSelf == false && winPanel.activeSelf == false && commingSoonPanel.activeSelf == false)
+        {
 			Invoke("InvokeRetryGame", 2);
 		}
 	}

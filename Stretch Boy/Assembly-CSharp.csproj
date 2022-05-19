@@ -164,6 +164,7 @@
     <Compile Include="Assets/Obi/Samples/RopeAndRod/SampleResources/Scripts/CraneController.cs" />
     <Compile Include="Assets/Obi/Samples/Common/SampleResources/Scripts/MoveAndRotate.cs" />
     <Compile Include="Assets/MyAssets/Scripts/MenuManager.cs" />
+    <Compile Include="Assets/MyAssets/Scripts/WallTrigger.cs" />
     <Compile Include="Assets/Obi/Common/Blueprints/BlueprintEditorTools/ObiPropertyTextureEditorTool.cs" />
     <Compile Include="Assets/Obi/Samples/RopeAndRod/SampleResources/Scripts/RuntimeRopeGenerator.cs" />
     <Compile Include="Assets/Obi/Common/Blueprints/Brushes/BrushModes/ObiSelectBrushMode.cs" />

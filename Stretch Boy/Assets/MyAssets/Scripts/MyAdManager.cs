@@ -24,6 +24,7 @@ public class MyAdManager : MonoBehaviour
     private InterstitialAd interstitial;
     private BannerView bannerView;
 
+    [System.Obsolete]
     public void Start()
     {
         // Initialize the Google Mobile Ads SDK.

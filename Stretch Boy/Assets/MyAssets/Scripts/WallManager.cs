@@ -4,38 +4,40 @@ using UnityEngine;
 
 public class WallManager : MonoBehaviour
 {
-    public GameObject wall;
+    public List<GameObject> wallList = new List<GameObject>();
+    public GameObject startWall;
+
     private Transform nextSpawnPosition;
+    private GameObject newWall;
+    private GameObject wall;
 
     // Start is called before the first frame update
     void Start()
     {
-        nextSpawnPosition = wall.transform.GetChild(0).transform;
-        InvokeRepeating("ExampleCoroutine", 3, 3);
+        nextSpawnPosition = startWall.transform.GetChild(0).transform;
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //void Update()
+    //{
+
+    //}
 
     private void SpawnNewWall()
     {
-        GameObject newWall = Instantiate(wall, nextSpawnPosition.position, Quaternion.identity);
-
+        wall = wallList[Random.Range(0, wallList.Count)];
+        newWall = Instantiate(wall, nextSpawnPosition.position, Quaternion.identity);
         nextSpawnPosition = newWall.transform.GetChild(0).transform;
     }
 
-    private void ExampleCoroutine()
+    private void OnEnable()
     {
-        //Print the time of when the function is first called.
-        Debug.Log("Started Coroutine at timestamp : " + Time.time);
+        WallTrigger.OnTriggerIn += SpawnNewWall;
+    }
 
-        //yield on a new YieldInstruction that waits for 5 seconds.
-
-        //After we have waited 1 seconds print the time again.
-        SpawnNewWall();
+    private void OnDisable()
+    {
+        WallTrigger.OnTriggerIn -= SpawnNewWall;
     }
 
 }

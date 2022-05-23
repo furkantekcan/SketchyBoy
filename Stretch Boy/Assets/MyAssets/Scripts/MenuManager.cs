@@ -5,11 +5,33 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+    public GameObject settingsPanel;
+
     public void Play()
     {
-        int currentLevelNo = PlayerPrefs.GetInt("LevelNo", 1);
+        //int currentLevelNo = PlayerPrefs.GetInt("LevelNo", 1);
 
-        SceneManager.LoadScene(currentLevelNo);
+        SceneManager.LoadScene(15);
+    }
+
+    public void OpenSettingsPanel()
+    {
+        settingsPanel.SetActive(true);
+    }
+
+    public void VibrationMode()
+    {
+
+    }
+
+    public void VoiceMode()
+    {
+
+    }
+
+    public void CLoseSettinsPanel()
+    {
+        settingsPanel.SetActive(false);
     }
 
     public void MoreGames()

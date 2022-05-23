@@ -16,6 +16,7 @@ public class GameManager: MonoBehaviour
 	public Transform head;
 	public Text scoreText;
 	
+	
 
 
 	private int handsStick;
@@ -25,10 +26,11 @@ public class GameManager: MonoBehaviour
 
 	private float lastPosOfHead;
 	private float score;
+	private float maxScore = 0f;
 
 	private void Start()
 	{
-		score = 0;
+		score = PlayerPrefs.GetInt("maxScore");
 		lastPosOfHead = head.position.y;
 	}
 
@@ -44,6 +46,8 @@ public class GameManager: MonoBehaviour
 		hands = FindObjectsOfType<Drag>();
 
 		CheckHandCollision();
+
+
 	}
 
     private void Update()
@@ -122,9 +126,21 @@ public class GameManager: MonoBehaviour
 		}
 	}
 
+	private void CheckMaxScore(int score)
+    {
+        if ( score > PlayerPrefs.GetInt("maxScore"))
+        {
+			PlayerPrefs.SetInt("maxScore", score);
+        }
+    }
+
 	public void RetryGame()
 	{
-        if (retryPanel.activeSelf == false && winPanel.activeSelf == false && commingSoonPanel.activeSelf == false)
+		CheckMaxScore( (int)score);
+
+		Debug.Log(PlayerPrefs.GetInt("maxScore"));
+
+		if (retryPanel.activeSelf == false && winPanel.activeSelf == false && commingSoonPanel.activeSelf == false)
         {
 			Invoke("InvokeRetryGame", 2);
 		}

@@ -6,17 +6,22 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     public GameObject settingsPanel;
+    public GameObject scorePanel;
 
     public void Play()
     {
         //int currentLevelNo = PlayerPrefs.GetInt("LevelNo", 1);
 
-        SceneManager.LoadScene(15);
+        SceneManager.LoadScene(1);
     }
 
     public void OpenSettingsPanel()
     {
         settingsPanel.SetActive(true);
+    }
+    public void OpenScoresPanel()
+    {
+        scorePanel.SetActive(true);
     }
 
     public void VibrationMode()
@@ -29,9 +34,10 @@ public class MenuManager : MonoBehaviour
 
     }
 
-    public void CLoseSettinsPanel()
+    public void BackToMenu()
     {
         settingsPanel.SetActive(false);
+        scorePanel.SetActive(false);
     }
 
     public void MoreGames()
